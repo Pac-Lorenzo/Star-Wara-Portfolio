@@ -32,8 +32,9 @@ export default function Globe({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const phiRef = useRef(0);
   const widthRef = useRef(0);
+  type GlobeRenderState = Parameters<NonNullable<COBEOptions["onRender"]>>[0];
 
-  const onRender = useCallback((state: any) => {
+  const onRender = useCallback((state: GlobeRenderState) => {
     phiRef.current += 0.003;
     state.phi = phiRef.current;
     state.width = widthRef.current * 2;
