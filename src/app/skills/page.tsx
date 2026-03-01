@@ -1,22 +1,24 @@
-import { skillCategories } from "@/data/skills";
-import SkillCategoryCard from "@/components/SkillCategoryCard";
+import { skillGroups } from "@/data/skills";
+import SkillCard from "@/components/SkillCard";
 
 export default function SkillsPage() {
   return (
-    <section className="min-h-screen">
-      <h1 className="text-4xl font-bold text-blue-400 mb-12">
-        Skills & Tools
+    <section className="min-h-screen flex flex-col items-center px-6 py-24">
+
+      <h1 className="starwars starwars-yellow text-5xl md:text-7xl mb-16 text-center">
+        skills
       </h1>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {skillCategories.map((category) => (
-          <SkillCategoryCard
-            key={category.title}
-            title={category.title}
-            skills={category.skills}
+      <div className="w-full flex flex-col items-center gap-16">
+        {skillGroups.map((group) => (
+          <SkillCard
+            key={group.title}
+            title={group.title}
+            skills={group.skills}
           />
         ))}
       </div>
+
     </section>
   );
 }
